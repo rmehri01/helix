@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "colibri";
             const default_dark_theme = "colibri";
-            window.path_to_searchindex_js = "searchindex-9626922f.js";
+            window.path_to_searchindex_js = "searchindex-6b517452.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c295f344.js"></script>
@@ -132,7 +132,7 @@
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="colibri">Colibri</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-colibri">Colibri</button></li>
                         </ul>
                         <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
                             <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
@@ -219,8 +219,9 @@
 <tbody>
 <tr><td><code>scrolloff</code></td><td>Number of lines of padding around the edge of the screen when scrolling</td><td><code>5</code></td></tr>
 <tr><td><code>mouse</code></td><td>Enable mouse mode</td><td><code>true</code></td></tr>
-<tr><td><code>default-yank-register</code></td><td>Default register used for yank/paste</td><td><code>'"'</code></td></tr>
+<tr><td><code>mouse-yank-register</code></td><td>Which register to use for mouse yanks.</td><td> <code>*</code></td></tr>
 <tr><td><code>middle-click-paste</code></td><td>Middle click paste support</td><td><code>true</code></td></tr>
+<tr><td><code>default-yank-register</code></td><td>Default register used for yank/paste</td><td><code>'"'</code></td></tr>
 <tr><td><code>scroll-lines</code></td><td>Number of lines to scroll per scroll wheel step</td><td><code>3</code></td></tr>
 <tr><td><code>shell</code></td><td>Shell to use when running external commands</td><td>Unix: <code>["sh", "-c"]</code><br />Windows: <code>["cmd", "/C"]</code></td></tr>
 <tr><td><code>line-number</code></td><td>Line number display: <code>absolute</code> simply shows each line’s number, while <code>relative</code> shows the distance from the current line. When unfocused or in insert mode, <code>relative</code> will still show absolute line numbers</td><td><code>"absolute"</code></td></tr>
@@ -354,6 +355,7 @@ workspace-diagnostics = ["warning", "error"]
 <tr><td><code>display-messages</code></td><td>Display LSP <code>window/showMessage</code> messages below statusline<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">2</a></sup></td><td><code>true</code></td></tr>
 <tr><td><code>display-progress-messages</code></td><td>Display LSP progress messages below statusline<sup class="footnote-reference" id="fr-1-2"><a href="#footnote-1">2</a></sup></td><td><code>false</code></td></tr>
 <tr><td><code>auto-signature-help</code></td><td>Enable automatic popup of signature help (parameter hints)</td><td><code>true</code></td></tr>
+<tr><td><code>auto-document-highlight</code></td><td>Automatically highlight symbol references at the cursor</td><td><code>false</code></td></tr>
 <tr><td><code>display-inlay-hints</code></td><td>Display inlay hints<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">3</a></sup></td><td><code>false</code></td></tr>
 <tr><td><code>inlay-hints-length-limit</code></td><td>Maximum displayed length (non-zero number) of inlay hints</td><td>Unset by default</td></tr>
 <tr><td><code>display-color-swatches</code></td><td>Show color swatches next to colors</td><td><code>true</code></td></tr>

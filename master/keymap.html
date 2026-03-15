@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "colibri";
             const default_dark_theme = "colibri";
-            window.path_to_searchindex_js = "searchindex-9626922f.js";
+            window.path_to_searchindex_js = "searchindex-6b517452.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c295f344.js"></script>
@@ -132,7 +132,7 @@
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="colibri">Colibri</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-colibri">Colibri</button></li>
                         </ul>
                         <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
                             <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
@@ -447,7 +447,7 @@ useful when you’re simply looking over text and not actively editing it.</p>
 <tr><td><code>&lt;n&gt;|</code></td><td>Go to column number <code>&lt;n&gt;</code></td><td><code>goto_column</code></td></tr>
 <tr><td><code>|</code></td><td>Go to the start of line</td><td><code>goto_column</code></td></tr>
 <tr><td><code>e</code></td><td>Go to the end of the file</td><td><code>goto_last_line</code></td></tr>
-<tr><td><code>f</code></td><td>Go to files in the selections</td><td><code>goto_file</code></td></tr>
+<tr><td><code>f</code></td><td>Go to files/URLs in selections</td><td><code>goto_file</code></td></tr>
 <tr><td><code>h</code></td><td>Go to the start of the line</td><td><code>goto_line_start</code></td></tr>
 <tr><td><code>l</code></td><td>Go to the end of the line</td><td><code>goto_line_end</code></td></tr>
 <tr><td><code>s</code></td><td>Go to first non-whitespace character of the line</td><td><code>goto_first_nonwhitespace</code></td></tr>
@@ -500,8 +500,8 @@ useful when you’re simply looking over text and not actively editing it.</p>
 <tr><td><code>w</code>, <code>Ctrl-w</code></td><td>Switch to next window</td><td><code>rotate_view</code></td></tr>
 <tr><td><code>v</code>, <code>Ctrl-v</code></td><td>Vertical right split</td><td><code>vsplit</code></td></tr>
 <tr><td><code>s</code>, <code>Ctrl-s</code></td><td>Horizontal bottom split</td><td><code>hsplit</code></td></tr>
-<tr><td><code>f</code></td><td>Go to files in the selections in horizontal splits</td><td><code>goto_file</code></td></tr>
-<tr><td><code>F</code></td><td>Go to files in the selections in vertical splits</td><td><code>goto_file</code></td></tr>
+<tr><td><code>f</code></td><td>Go to files/URLs in selections in horizontal splits</td><td><code>goto_file</code></td></tr>
+<tr><td><code>F</code></td><td>Go to files/URLs in selections in vertical splits</td><td><code>goto_file</code></td></tr>
 <tr><td><code>h</code>, <code>Ctrl-h</code>, <code>Left</code></td><td>Move to left split</td><td><code>jump_view_left</code></td></tr>
 <tr><td><code>j</code>, <code>Ctrl-j</code>, <code>Down</code></td><td>Move to split below</td><td><code>jump_view_down</code></td></tr>
 <tr><td><code>k</code>, <code>Ctrl-k</code>, <code>Up</code></td><td>Move to split above</td><td><code>jump_view_up</code></td></tr>

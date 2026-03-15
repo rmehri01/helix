@@ -36,7 +36,7 @@
             const path_to_root = "";
             const default_light_theme = "colibri";
             const default_dark_theme = "colibri";
-            window.path_to_searchindex_js = "searchindex-9626922f.js";
+            window.path_to_searchindex_js = "searchindex-6b517452.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c295f344.js"></script>
@@ -132,7 +132,7 @@
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="colibri">Colibri</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-colibri">Colibri</button></li>
                         </ul>
                         <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
                             <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
@@ -242,6 +242,9 @@
 <tr><td><code>:primary-clipboard-paste-replace</code></td><td>Replace selections with content of system primary clipboard.</td></tr>
 <tr><td><code>:show-clipboard-provider</code></td><td>Show clipboard provider name in status bar.</td></tr>
 <tr><td><code>:change-current-directory</code>, <code>:cd</code></td><td>Change the current working directory.</td></tr>
+<tr><td><code>:show-directory-stack</code></td><td>Show the directory stack as a <space> delimited string.</space></td></tr>
+<tr><td><code>:push-directory</code>, <code>:pushd</code></td><td>Save and then change the current directory.</td></tr>
+<tr><td><code>:pop-directory</code>, <code>:popd</code></td><td>Remove the top entry from the directory stack, and cd to the new top directory..</td></tr>
 <tr><td><code>:show-directory</code>, <code>:pwd</code></td><td>Show the current working directory.</td></tr>
 <tr><td><code>:encoding</code></td><td>Set encoding. Based on <code>https://encoding.spec.whatwg.org</code>.</td></tr>
 <tr><td><code>:character-info</code>, <code>:char</code></td><td>Get info about the character under the primary cursor.</td></tr>
@@ -401,7 +404,7 @@
 <tr><td><code>file_picker_in_current_buffer_directory</code></td><td>Open file picker at current buffer’s directory</td><td></td></tr>
 <tr><td><code>file_picker_in_current_directory</code></td><td>Open file picker at current working directory</td><td>normal: <code>&lt;space&gt;F</code>, select: <code>&lt;space&gt;F</code></td></tr>
 <tr><td><code>file_explorer</code></td><td>Open file explorer in workspace root</td><td>normal: <code>&lt;space&gt;e</code>, select: <code>&lt;space&gt;e</code></td></tr>
-<tr><td><code>file_explorer_in_current_buffer_directory</code></td><td>Open file explorer at current buffer’s directory</td><td>normal: <code>&lt;space&gt;E</code>, select: <code>&lt;space&gt;E</code></td></tr>
+<tr><td><code>file_explorer_in_current_buffer_directory</code></td><td>Open file explorer at current buffer’s directory</td><td>normal: <code>&lt;space&gt;.</code>, select: <code>&lt;space&gt;.</code></td></tr>
 <tr><td><code>file_explorer_in_current_directory</code></td><td>Open file explorer at current working directory</td><td></td></tr>
 <tr><td><code>code_action</code></td><td>Perform code action</td><td>normal: <code>&lt;space&gt;a</code>, select: <code>&lt;space&gt;a</code></td></tr>
 <tr><td><code>buffer_picker</code></td><td>Open buffer picker</td><td>normal: <code>&lt;space&gt;b</code>, select: <code>&lt;space&gt;b</code></td></tr>

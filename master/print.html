@@ -37,7 +37,7 @@
             const path_to_root = "";
             const default_light_theme = "colibri";
             const default_dark_theme = "colibri";
-            window.path_to_searchindex_js = "searchindex-9626922f.js";
+            window.path_to_searchindex_js = "searchindex-6b517452.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-c295f344.js"></script>
@@ -133,7 +133,7 @@
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="colibri">Colibri</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-colibri">Colibri</button></li>
                         </ul>
                         <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
                             <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
@@ -1058,7 +1058,7 @@ useful when you’re simply looking over text and not actively editing it.</p>
 <tr><td><code>&lt;n&gt;|</code></td><td>Go to column number <code>&lt;n&gt;</code></td><td><code>goto_column</code></td></tr>
 <tr><td><code>|</code></td><td>Go to the start of line</td><td><code>goto_column</code></td></tr>
 <tr><td><code>e</code></td><td>Go to the end of the file</td><td><code>goto_last_line</code></td></tr>
-<tr><td><code>f</code></td><td>Go to files in the selections</td><td><code>goto_file</code></td></tr>
+<tr><td><code>f</code></td><td>Go to files/URLs in selections</td><td><code>goto_file</code></td></tr>
 <tr><td><code>h</code></td><td>Go to the start of the line</td><td><code>goto_line_start</code></td></tr>
 <tr><td><code>l</code></td><td>Go to the end of the line</td><td><code>goto_line_end</code></td></tr>
 <tr><td><code>s</code></td><td>Go to first non-whitespace character of the line</td><td><code>goto_first_nonwhitespace</code></td></tr>
@@ -1111,8 +1111,8 @@ useful when you’re simply looking over text and not actively editing it.</p>
 <tr><td><code>w</code>, <code>Ctrl-w</code></td><td>Switch to next window</td><td><code>rotate_view</code></td></tr>
 <tr><td><code>v</code>, <code>Ctrl-v</code></td><td>Vertical right split</td><td><code>vsplit</code></td></tr>
 <tr><td><code>s</code>, <code>Ctrl-s</code></td><td>Horizontal bottom split</td><td><code>hsplit</code></td></tr>
-<tr><td><code>f</code></td><td>Go to files in the selections in horizontal splits</td><td><code>goto_file</code></td></tr>
-<tr><td><code>F</code></td><td>Go to files in the selections in vertical splits</td><td><code>goto_file</code></td></tr>
+<tr><td><code>f</code></td><td>Go to files/URLs in selections in horizontal splits</td><td><code>goto_file</code></td></tr>
+<tr><td><code>F</code></td><td>Go to files/URLs in selections in vertical splits</td><td><code>goto_file</code></td></tr>
 <tr><td><code>h</code>, <code>Ctrl-h</code>, <code>Left</code></td><td>Move to left split</td><td><code>jump_view_left</code></td></tr>
 <tr><td><code>j</code>, <code>Ctrl-j</code>, <code>Down</code></td><td>Move to split below</td><td><code>jump_view_down</code></td></tr>
 <tr><td><code>k</code>, <code>Ctrl-k</code>, <code>Up</code></td><td>Move to split above</td><td><code>jump_view_up</code></td></tr>
@@ -1506,6 +1506,9 @@ space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 <tr><td><code>:primary-clipboard-paste-replace</code></td><td>Replace selections with content of system primary clipboard.</td></tr>
 <tr><td><code>:show-clipboard-provider</code></td><td>Show clipboard provider name in status bar.</td></tr>
 <tr><td><code>:change-current-directory</code>, <code>:cd</code></td><td>Change the current working directory.</td></tr>
+<tr><td><code>:show-directory-stack</code></td><td>Show the directory stack as a <space> delimited string.</space></td></tr>
+<tr><td><code>:push-directory</code>, <code>:pushd</code></td><td>Save and then change the current directory.</td></tr>
+<tr><td><code>:pop-directory</code>, <code>:popd</code></td><td>Remove the top entry from the directory stack, and cd to the new top directory..</td></tr>
 <tr><td><code>:show-directory</code>, <code>:pwd</code></td><td>Show the current working directory.</td></tr>
 <tr><td><code>:encoding</code></td><td>Set encoding. Based on <code>https://encoding.spec.whatwg.org</code>.</td></tr>
 <tr><td><code>:character-info</code>, <code>:char</code></td><td>Get info about the character under the primary cursor.</td></tr>
@@ -1665,7 +1668,7 @@ space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 <tr><td><code>file_picker_in_current_buffer_directory</code></td><td>Open file picker at current buffer’s directory</td><td></td></tr>
 <tr><td><code>file_picker_in_current_directory</code></td><td>Open file picker at current working directory</td><td>normal: <code>&lt;space&gt;F</code>, select: <code>&lt;space&gt;F</code></td></tr>
 <tr><td><code>file_explorer</code></td><td>Open file explorer in workspace root</td><td>normal: <code>&lt;space&gt;e</code>, select: <code>&lt;space&gt;e</code></td></tr>
-<tr><td><code>file_explorer_in_current_buffer_directory</code></td><td>Open file explorer at current buffer’s directory</td><td>normal: <code>&lt;space&gt;E</code>, select: <code>&lt;space&gt;E</code></td></tr>
+<tr><td><code>file_explorer_in_current_buffer_directory</code></td><td>Open file explorer at current buffer’s directory</td><td>normal: <code>&lt;space&gt;.</code>, select: <code>&lt;space&gt;.</code></td></tr>
 <tr><td><code>file_explorer_in_current_directory</code></td><td>Open file explorer at current working directory</td><td></td></tr>
 <tr><td><code>code_action</code></td><td>Perform code action</td><td>normal: <code>&lt;space&gt;a</code>, select: <code>&lt;space&gt;a</code></td></tr>
 <tr><td><code>buffer_picker</code></td><td>Open buffer picker</td><td>normal: <code>&lt;space&gt;b</code>, select: <code>&lt;space&gt;b</code></td></tr>
@@ -1950,6 +1953,7 @@ Languages</a> guide for more language configuration information.</p>
 <tr><td>dockerfile</td><td>✓</td><td>✓</td><td></td><td></td><td></td><td><code>docker-langserver</code>, <code>docker-language-server</code></td></tr>
 <tr><td>dot</td><td>✓</td><td></td><td></td><td></td><td></td><td><code>dot-language-server</code></td></tr>
 <tr><td>doxyfile</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td></tr>
+<tr><td>drools</td><td></td><td></td><td></td><td></td><td></td><td><code>drools-lsp</code></td></tr>
 <tr><td>dtd</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>dune</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>dunstrc</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -2119,7 +2123,9 @@ Languages</a> guide for more language configuration information.</p>
 <tr><td>prolog</td><td>✓</td><td></td><td>✓</td><td></td><td></td><td><code>swipl</code></td></tr>
 <tr><td>properties</td><td>✓</td><td>✓</td><td></td><td></td><td></td><td></td></tr>
 <tr><td>protobuf</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td></td><td><code>buf</code>, <code>pb</code>, <code>protols</code></td></tr>
+<tr><td>proverif</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>prql</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>ptx</td><td>✓</td><td></td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>pug</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>purescript</td><td>✓</td><td>✓</td><td></td><td></td><td></td><td><code>purescript-language-server</code></td></tr>
 <tr><td>python</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td><code>ty</code>, <code>ruff</code>, <code>jedi-language-server</code>, <code>pylsp</code></td></tr>
@@ -2166,6 +2172,7 @@ Languages</a> guide for more language configuration information.</p>
 <tr><td>starlark</td><td>✓</td><td>✓</td><td>✓</td><td></td><td>✓</td><td><code>starpls</code></td></tr>
 <tr><td>strace</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>strictdoc</td><td>✓</td><td></td><td></td><td>✓</td><td></td><td></td></tr>
+<tr><td>styx</td><td>✓</td><td>✓</td><td>✓</td><td></td><td>✓</td><td><code>styx</code></td></tr>
 <tr><td>supercollider</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>svelte</td><td>✓</td><td>✓</td><td>✓</td><td></td><td>✓</td><td><code>svelteserver</code></td></tr>
 <tr><td>sway</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td><code>forc</code></td></tr>
@@ -2492,8 +2499,9 @@ Its settings will be merged with the configuration directory and the built-in co
 <tbody>
 <tr><td><code>scrolloff</code></td><td>Number of lines of padding around the edge of the screen when scrolling</td><td><code>5</code></td></tr>
 <tr><td><code>mouse</code></td><td>Enable mouse mode</td><td><code>true</code></td></tr>
-<tr><td><code>default-yank-register</code></td><td>Default register used for yank/paste</td><td><code>'"'</code></td></tr>
+<tr><td><code>mouse-yank-register</code></td><td>Which register to use for mouse yanks.</td><td> <code>*</code></td></tr>
 <tr><td><code>middle-click-paste</code></td><td>Middle click paste support</td><td><code>true</code></td></tr>
+<tr><td><code>default-yank-register</code></td><td>Default register used for yank/paste</td><td><code>'"'</code></td></tr>
 <tr><td><code>scroll-lines</code></td><td>Number of lines to scroll per scroll wheel step</td><td><code>3</code></td></tr>
 <tr><td><code>shell</code></td><td>Shell to use when running external commands</td><td>Unix: <code>["sh", "-c"]</code><br />Windows: <code>["cmd", "/C"]</code></td></tr>
 <tr><td><code>line-number</code></td><td>Line number display: <code>absolute</code> simply shows each line’s number, while <code>relative</code> shows the distance from the current line. When unfocused or in insert mode, <code>relative</code> will still show absolute line numbers</td><td><code>"absolute"</code></td></tr>
@@ -2627,6 +2635,7 @@ workspace-diagnostics = ["warning", "error"]
 <tr><td><code>display-messages</code></td><td>Display LSP <code>window/showMessage</code> messages below statusline<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">2</a></sup></td><td><code>true</code></td></tr>
 <tr><td><code>display-progress-messages</code></td><td>Display LSP progress messages below statusline<sup class="footnote-reference" id="fr-1-2"><a href="#footnote-1">2</a></sup></td><td><code>false</code></td></tr>
 <tr><td><code>auto-signature-help</code></td><td>Enable automatic popup of signature help (parameter hints)</td><td><code>true</code></td></tr>
+<tr><td><code>auto-document-highlight</code></td><td>Automatically highlight symbol references at the cursor</td><td><code>false</code></td></tr>
 <tr><td><code>display-inlay-hints</code></td><td>Display inlay hints<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">3</a></sup></td><td><code>false</code></td></tr>
 <tr><td><code>inlay-hints-length-limit</code></td><td>Maximum displayed length (non-zero number) of inlay hints</td><td>Unset by default</td></tr>
 <tr><td><code>display-color-swatches</code></td><td>Show color swatches next to colors</td><td><code>true</code></td></tr>
@@ -3213,8 +3222,17 @@ The key is a list of styles.</p>
 <li>
 <p><code>variable</code> - Variables</p>
 <ul>
-<li><code>builtin</code> - Reserved language variables (<code>self</code>, <code>this</code>, <code>super</code>, etc.)</li>
-<li><code>parameter</code> - Function parameters</li>
+<li><code>mutable</code> - Mutable variables (e.g. marked with <code>mut</code> in Rust)</li>
+<li><code>builtin</code> - Reserved language variables (<code>self</code>, <code>this</code>, <code>super</code>, etc.)
+<ul>
+<li><code>mutable</code> - Mutable language varaibles (e.g. <code>mut self</code> in Rust)</li>
+</ul>
+</li>
+<li><code>parameter</code> - Function parameters
+<ul>
+<li><code>mutable</code> - Mutable function parameters (e.g. marked with <code>mut</code> in Rust)</li>
+</ul>
+</li>
 <li><code>other</code>
 <ul>
 <li><code>member</code> - Fields of composite data types (e.g. structs, unions)
@@ -3631,7 +3649,7 @@ language-servers = [ "mylang-lsp" ]
 <tr><td><code>injection-regex</code></td><td>regex pattern that will be tested against a language name in order to determine whether this language should be used for a potential <a href="https://tree-sitter.github.io/tree-sitter/3-syntax-highlighting.html#language-injection">language injection</a> site.</td></tr>
 <tr><td><code>file-types</code></td><td>The filetypes of the language, for example <code>["yml", "yaml"]</code>. See the file-type detection section below.</td></tr>
 <tr><td><code>shebangs</code></td><td>The interpreters from the shebang line, for example <code>["sh", "bash"]</code></td></tr>
-<tr><td><code>roots</code></td><td>A set of marker files to look for when trying to find the workspace root. For example <code>Cargo.lock</code>, <code>yarn.lock</code>, <code>*.csproj</code></td></tr>
+<tr><td><code>roots</code></td><td>A set of marker files used for LSP working directory selection. Helix starts at the file, walks upward, and remembers the <em>topmost</em> i.e. <em>last</em> directory that contains a marker file. For example Cargo.lock, yarn.lock</td></tr>
 <tr><td><code>auto-format</code></td><td>Whether to autoformat this language when saving</td></tr>
 <tr><td><code>diagnostic-severity</code></td><td>Minimal severity of diagnostic for it to be displayed. (Allowed values: <code>error</code>, <code>warning</code>, <code>info</code>, <code>hint</code>)</td></tr>
 <tr><td><code>comment-tokens</code></td><td>The tokens to use as a comment token, either a single token <code>"//"</code> or an array <code>["//", "///", "//!"]</code> (the first token will be used for commenting). Also configurable as <code>comment-token</code> for backwards compatibility</td></tr>
@@ -3645,12 +3663,36 @@ language-servers = [ "mylang-lsp" ]
 <tr><td><code>rulers</code></td><td>Overrides the <code>editor.rulers</code> config key for the language.</td></tr>
 <tr><td><code>path-completion</code></td><td>Overrides the <code>editor.path-completion</code> config key for the language.</td></tr>
 <tr><td><code>word-completion</code></td><td>Overrides the <a href="#editorword-completion-section"><code>editor.word-completion</code></a> configuration for the language.</td></tr>
-<tr><td><code>workspace-lsp-roots</code></td><td>Directories relative to the workspace root that are treated as LSP roots. Should only be set in <code>.helix/config.toml</code>. Overwrites the setting of the same name in <code>config.toml</code> if set.</td></tr>
+<tr><td><code>workspace-lsp-roots</code></td><td>Directories (relative to the workspace root) that stop the upward root search early. Meant for project-specific hard overrides in a local <code>.helix/config.toml</code>;</td></tr>
 <tr><td><code>persistent-diagnostic-sources</code></td><td>An array of LSP diagnostic sources assumed unchanged when the language server resends the same set of diagnostics. Helix can track the position for these diagnostics internally instead. Useful for diagnostics that are recomputed on save.</td></tr>
 <tr><td><code>rainbow-brackets</code></td><td>Overrides the <code>editor.rainbow-brackets</code> config key for the language</td></tr>
 </tbody>
 </table>
 </div>
+<h2 id="project-and-lsp-root-selection"><a class="header" href="#project-and-lsp-root-selection">Project and LSP root selection</a></h2>
+<p>This is the model Helix uses:</p>
+<ul>
+<li>The <strong>workspace root</strong> is found once by walking upward from the current
+working directory and picking the first directory that contains <code>.git</code>, <code>.svn</code>,
+<code>.jj</code>, or <code>.helix</code>. If none are found, the current working directory is the
+workspace root.</li>
+<li>Root markers (<code>roots</code>) are used only for LSP root selection and are found by
+starting at the <strong>file</strong>, not the folder Helix was opened in.</li>
+<li>We use the <strong>topmost</strong> directory that has a root marker (we stop the search at
+the workspace root).</li>
+<li>In most cases, root markers are enough. In some repos there are multiple
+nested root markers and whether you want the inner or outer one is project
+specific. For these situations, use <code>workspace-lsp-roots</code> to stop the search
+early in a particular directory.</li>
+<li><code>workspace-lsp-roots</code> is meant to be set in the <strong>project-specific</strong> config:
+<code>$PROJECT/.helix/config.toml</code>.</li>
+</ul>
+<p>Interaction with <code>required-root-patterns</code> (a language_server configuration key):</p>
+<ul>
+<li>After the LSP root is selected, Helix checks for <code>required-root-patterns</code> in
+that directory. If none match, the server is not started.</li>
+<li>This is validation, not root detection.</li>
+</ul>
 <h3 id="file-type-detection-and-the-file-types-key"><a class="header" href="#file-type-detection-and-the-file-types-key">File-type detection and the <code>file-types</code> key</a></h3>
 <p>Helix determines which language configuration to use based on the <code>file-types</code> key
 from the above section. <code>file-types</code> is a list of strings or tables, for
@@ -3709,7 +3751,7 @@ languages = { typescript = [ { formatCommand ="prettier --stdin-filepath ${INPUT
 <tr><td><code>config</code></td><td>Language server initialization options</td></tr>
 <tr><td><code>timeout</code></td><td>The maximum time a request to the language server may take, in seconds. Defaults to <code>20</code></td></tr>
 <tr><td><code>environment</code></td><td>Any environment variables that will be used when starting the language server <code>{ "KEY1" = "Value1", "KEY2" = "Value2" }</code></td></tr>
-<tr><td><code>required-root-patterns</code></td><td>A list of <code>glob</code> patterns to look for in the working directory. The language server is started if at least one of them is found.</td></tr>
+<tr><td><code>required-root-patterns</code></td><td>A list of <code>glob</code> patterns to look for in the working directory of the lsp. The language server is only started if at least one of them is found.</td></tr>
 </tbody>
 </table>
 </div>
@@ -3747,8 +3789,8 @@ If a language server itself doesn’t support a feature, the next language serve
 <p>The list of supported features is:</p>
 <ul>
 <li><code>format</code></li>
-<li><code>goto-definition</code></li>
 <li><code>goto-declaration</code></li>
+<li><code>goto-definition</code></li>
 <li><code>goto-type-definition</code></li>
 <li><code>goto-reference</code></li>
 <li><code>goto-implementation</code></li>
@@ -3757,12 +3799,16 @@ If a language server itself doesn’t support a feature, the next language serve
 <li><code>document-highlight</code></li>
 <li><code>completion</code></li>
 <li><code>code-action</code></li>
+<li><code>document-links</code></li>
 <li><code>workspace-command</code></li>
 <li><code>document-symbols</code></li>
 <li><code>workspace-symbols</code></li>
 <li><code>diagnostics</code></li>
+<li><code>pull-diagnostics</code></li>
 <li><code>rename-symbol</code></li>
 <li><code>inlay-hints</code></li>
+<li><code>document-colors</code></li>
+<li><code>call-hierarchy</code></li>
 </ul>
 <h2 id="tree-sitter-grammar-configuration"><a class="header" href="#tree-sitter-grammar-configuration">Tree-sitter grammar configuration</a></h2>
 <p>The source for a language’s tree-sitter grammar is specified in a <code>[[grammar]]</code>
