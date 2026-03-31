@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "colibri";
             const default_dark_theme = "colibri";
-            window.path_to_searchindex_js = "searchindex-6b517452.js";
+            window.path_to_searchindex_js = "searchindex-9ddb6ab9.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-c295f344.js"></script>
+        <script src="toc-887400e0.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -184,7 +184,7 @@
 <p>Docs for bleeding edge master can be found at
 <a href="https://docs.helix-editor.com/master">https://docs.helix-editor.com/master</a>.</p>
 <p>See the <a href="#using-helix">usage</a> section for a quick overview of the editor, <a href="#keymap-1">keymap</a>
-section for all available keybindings and the <a href="#configuration">configuration</a> section
+section for all available keybindings and the <a href="#configuration-1">configuration</a> section
 for defining custom keybindings, setting themes, etc.
 For everything else (e.g., how to install supported language servers), see the <a href="https://github.com/helix-editor/helix/wiki">Helix Wiki</a>.</p>
 <p>Refer the <a href="https://github.com/helix-editor/helix/wiki/FAQ">FAQ</a> for common questions.</p>
@@ -241,6 +241,7 @@ To set up Helix:</p>
 <li><a href="#winget">Winget</a></li>
 <li><a href="#scoop">Scoop</a></li>
 <li><a href="#chocolatey">Chocolatey</a></li>
+<li><a href="#packably">Packably</a></li>
 <li><a href="#msys2">MSYS2</a></li>
 </ul>
 </li>
@@ -319,7 +320,7 @@ mv helix-*.AppImage "$HOME/.local/bin/hx"
 <pre><code class="language-sh">sudo port install helix
 </code></pre>
 <h2 id="windows"><a class="header" href="#windows">Windows</a></h2>
-<p>Install on Windows using <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Winget</a>, <a href="https://scoop.sh/">Scoop</a>, <a href="https://chocolatey.org/">Chocolatey</a>
+<p>Install on Windows using <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">Winget</a>, <a href="https://scoop.sh/">Scoop</a>, <a href="https://chocolatey.org/">Chocolatey</a>, <a href="https://www.packably.com.br/">Packably</a>
 or <a href="https://msys2.org/">MSYS2</a>.</p>
 <h3 id="winget"><a class="header" href="#winget">Winget</a></h3>
 <p>Windows Package Manager winget command-line tool is by default available on Windows 11 and modern versions of Windows 10 as a part of the App Installer.
@@ -331,6 +332,9 @@ You can get <a href="https://www.microsoft.com/p/app-installer/9nblggh4nns1#acti
 </code></pre>
 <h3 id="chocolatey"><a class="header" href="#chocolatey">Chocolatey</a></h3>
 <pre><code class="language-sh">choco install helix
+</code></pre>
+<h3 id="packably"><a class="header" href="#packably">Packably</a></h3>
+<pre><code class="language-sh">packl install helix
 </code></pre>
 <h3 id="msys2"><a class="header" href="#msys2">MSYS2</a></h3>
 <p>For 64-bit Windows 8.1 or above:</p>
@@ -1424,7 +1428,7 @@ space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 <li>Unicode <code>%u{..}</code>. The contents may contain up to six hexadecimal numbers corresponding to a Unicode codepoint value. For example <code>:echo %u{25CF}</code> prints <code>●</code> to the statusline.</li>
 <li>Shell <code>%sh{..}</code>. The contents are passed to the configured shell command. For example <code>:echo %sh{echo "20 * 5" | bc}</code> may print <code>100</code> on the statusline on when using a shell with <code>echo</code> and the <code>bc</code> calculator installed. Shell expansions are evaluated recursively. <code>%sh{echo '%{buffer_name}:%{cursor_line}'}</code> for example executes a command like <code>echo 'README.md:1'</code>: the variables within the <code>%sh{..}</code> expansion are evaluated before executing the shell command.</li>
 </ul>
-<p>As mentioned above, double quotes can be used to surround arguments containing spaces but also support expansions within the quoted content unlike singe quotes or backticks. For example <code>:echo "circle: %u{25CF}"</code> prints <code>circle: ●</code> to the statusline while <code>:echo 'circle: %u{25CF}'</code> prints <code>circle: %u{25CF}</code>.</p>
+<p>As mentioned above, double quotes can be used to surround arguments containing spaces but also support expansions within the quoted content unlike single quotes or backticks. For example <code>:echo "circle: %u{25CF}"</code> prints <code>circle: ●</code> to the statusline while <code>:echo 'circle: %u{25CF}'</code> prints <code>circle: %u{25CF}</code>.</p>
 <p>Note that expansions are only evaluated once the Enter key is pressed in command mode.</p>
 <h2 id="exceptions"><a class="header" href="#exceptions">Exceptions</a></h2>
 <p>The following commands support expansions but otherwise pass the given argument directly to the shell program without interpreting quotes:</p>
@@ -1556,6 +1560,8 @@ space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
 <tr><td><code>:read</code>, <code>:r</code></td><td>Load a file into buffer</td></tr>
 <tr><td><code>:echo</code></td><td>Prints the given arguments to the statusline.</td></tr>
 <tr><td><code>:noop</code></td><td>Does nothing.</td></tr>
+<tr><td><code>:workspace-trust</code></td><td>Add current workspace to the list of trusted workspaces.</td></tr>
+<tr><td><code>:workspace-untrust</code></td><td>Remove current workspace from the list of trusted workspaces.</td></tr>
 </tbody>
 </table>
 </div>
@@ -1930,14 +1936,14 @@ Languages</a> guide for more language configuration information.</p>
 <tr><td>cmake</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td><code>neocmakelsp</code>, <code>cmake-language-server</code></td></tr>
 <tr><td>codeql</td><td>✓</td><td>✓</td><td></td><td></td><td></td><td><code>codeql</code></td></tr>
 <tr><td>comment</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>common-lisp</td><td>✓</td><td></td><td>✓</td><td></td><td>✓</td><td><code>cl-lsp</code></td></tr>
+<tr><td>common-lisp</td><td>✓</td><td>✓</td><td></td><td>✓</td><td>✓</td><td><code>cl-lsp</code></td></tr>
 <tr><td>cpon</td><td>✓</td><td></td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>cpp</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td><code>clangd</code></td></tr>
 <tr><td>cross-config</td><td>✓</td><td>✓</td><td></td><td></td><td>✓</td><td><code>taplo</code>, <code>tombi</code></td></tr>
 <tr><td>crystal</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td></td><td><code>crystalline</code>, <code>ameba-ls</code></td></tr>
 <tr><td>css</td><td>✓</td><td></td><td>✓</td><td></td><td>✓</td><td><code>vscode-css-language-server</code></td></tr>
 <tr><td>csv</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>cue</td><td>✓</td><td></td><td></td><td></td><td></td><td><code>cuelsp</code></td></tr>
+<tr><td>cue</td><td>✓</td><td></td><td></td><td></td><td></td><td><code>cue</code></td></tr>
 <tr><td>cylc</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>cython</td><td>✓</td><td></td><td>✓</td><td>✓</td><td></td><td></td></tr>
 <tr><td>d</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td><code>serve-d</code></td></tr>
@@ -1958,6 +1964,7 @@ Languages</a> guide for more language configuration information.</p>
 <tr><td>dune</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>dunstrc</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>earthfile</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td><code>earthlyls</code></td></tr>
+<tr><td>ebnf</td><td>✓</td><td></td><td></td><td></td><td></td><td><code>ebnfer</code></td></tr>
 <tr><td>edoc</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>eex</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>eiffel</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td><code>eiffel-language-server</code></td></tr>
@@ -2194,12 +2201,13 @@ Languages</a> guide for more language configuration information.</p>
 <tr><td>tlaplus</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>todotxt</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>toml</td><td>✓</td><td>✓</td><td></td><td>✓</td><td>✓</td><td><code>taplo</code>, <code>tombi</code></td></tr>
+<tr><td>tql</td><td>✓</td><td></td><td>✓</td><td></td><td></td><td></td></tr>
 <tr><td>tsq</td><td>✓</td><td></td><td></td><td></td><td>✓</td><td><code>ts_query_ls</code></td></tr>
 <tr><td>tsx</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td><code>typescript-language-server</code></td></tr>
 <tr><td>twig</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>typescript</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td><code>typescript-language-server</code></td></tr>
 <tr><td>typespec</td><td>✓</td><td>✓</td><td>✓</td><td></td><td></td><td><code>tsp-server</code></td></tr>
-<tr><td>typst</td><td>✓</td><td></td><td></td><td>✓</td><td></td><td><code>tinymist</code></td></tr>
+<tr><td>typst</td><td>✓</td><td>✓</td><td></td><td>✓</td><td></td><td><code>tinymist</code></td></tr>
 <tr><td>ungrammar</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
 <tr><td>unison</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td></td></tr>
 <tr><td>uxntal</td><td>✓</td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -2231,6 +2239,20 @@ Languages</a> guide for more language configuration information.</p>
 </tbody>
 </table>
 </div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="workspace-trust"><a class="header" href="#workspace-trust">Workspace trust</a></h1>
+<p>Helix has a number of potentially dangerous features, namely LSP and ability to use local to workspace configurations. Those features can lead to unexpected code execution. To protect against code execution in dangerous contexts, Helix has a workspace trust protection, which will prevent these potentially dangerous features from running automatically.</p>
+<p>Helix will not trust any workspace by default.</p>
+<p>By default, it will prompt about trust when you open new file in a workspace where you didn’t make a decision about trust yet.</p>
+<p>If you decide not to trust a workspace and don’t want to be prompted about trust every time you start a new session in it, you can exclude the workspace by choosing <code>Never</code> option in trust selection window.</p>
+<p>You can always make current workspace trusted by running <code>:workspace-trust</code> command, and untrust it with <code>:workspace-untrust</code>.</p>
+<p>Lists of trusted and excluded workspaces, delimited by newline characters, are stored in <code>~/.local/share/helix/trusted_workspaces</code> and <code>~/.local/share/helix/excluded_workspaces</code> correspondingly.</p>
+<!-- TODO: Windows paths -->
+<h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<p>You can return to the old behaviour of loading every local <code>.helix/config.toml</code> and <code>.helix/languages.toml</code> and starting LSP’s without an explicit permission by setting following option:</p>
+<pre><code class="language-toml">[editor]
+insecure = true
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="ecosystem"><a class="header" href="#ecosystem">Ecosystem</a></h1>
 <p>This section has information related to the wider Helix ecosystem.</p>
@@ -2430,7 +2452,7 @@ insert = "bar"
 </table>
 </div>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<h1 id="configuration-1"><a class="header" href="#configuration-1">Configuration</a></h1>
 <p>To override global configuration parameters, create a <code>config.toml</code> file located in your config directory:</p>
 <ul>
 <li>Linux and Mac: <code>~/.config/helix/config.toml</code></li>
@@ -3004,7 +3026,7 @@ trigger-length = 4
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="themes-1"><a href="#themes-1" class="header">Themes</a></h1>
 <h2 id="themes"><a class="header" href="#themes">Themes</a></h2>
-<p>To use a theme add <code>theme = "&lt;name&gt;"</code> to the top of your <a href="#configuration"><code>config.toml</code></a> file, or select it during runtime using <code>:theme &lt;name&gt;</code>.</p>
+<p>To use a theme add <code>theme = "&lt;name&gt;"</code> to the top of your <a href="#configuration-1"><code>config.toml</code></a> file, or select it during runtime using <code>:theme &lt;name&gt;</code>.</p>
 <p>Separate themes can be configured for light and dark modes. On terminals supporting <a href="https://github.com/contour-terminal/contour/blob/master/docs/vt-extensions/color-palette-update-notifications.md">mode 2031 dark/light detection</a>, the theme mode is detected from the terminal.</p>
 <pre><code class="language-toml">[theme]
 dark = "catppuccin_frappe"
@@ -3603,7 +3625,7 @@ in <code>languages.toml</code> files.</p>
 It provides the default configurations for languages and language servers.</p>
 </li>
 <li>
-<p>In your <a href="#configuration">configuration directory</a>. This overrides values
+<p>In your <a href="#configuration-1">configuration directory</a>. This overrides values
 from the built-in language configuration. For example, to disable
 auto-formatting for Rust:</p>
 <pre><code class="language-toml"># in &lt;config_dir&gt;/helix/languages.toml
